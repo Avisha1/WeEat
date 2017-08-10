@@ -17,4 +17,7 @@
 class Restaurant < ApplicationRecord
   belongs_to :cuisine, foreign_key: :cuisine_id
   has_many :reviews, dependent: :destroy
+
+  validates :name, :cuisine_id, presence: true
+  validates :max_delivery_time, numericality: {greater_than_or_equal_to: 0}
 end
