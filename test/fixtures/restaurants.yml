@@ -7,11 +7,10 @@
 #  cuisine_id        :integer
 #  rating            :integer
 #  accept_10_bis     :boolean
-#  lat               :float
-#  lon               :float
-#  max_delivery_time :string
+#  max_delivery_time :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  address           :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

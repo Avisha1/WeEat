@@ -7,11 +7,10 @@
 #  cuisine_id        :integer
 #  rating            :integer
 #  accept_10_bis     :boolean
-#  lat               :float
-#  lon               :float
-#  max_delivery_time :string
+#  max_delivery_time :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  address           :string
 #
 
 class Restaurant < ApplicationRecord
@@ -20,4 +19,5 @@ class Restaurant < ApplicationRecord
 
   validates :name, :cuisine_id, presence: true
   validates :max_delivery_time, numericality: {greater_than_or_equal_to: 0}
+  validates :name, uniqueness: { scope: :address }
 end

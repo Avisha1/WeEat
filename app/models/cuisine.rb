@@ -6,6 +6,7 @@
 #  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  icon       :integer
 #
 
 class Cuisine < ApplicationRecord
@@ -13,8 +14,7 @@ class Cuisine < ApplicationRecord
 
   before_destroy :ensure_not_referenced_by_any_restaurant
 
-
-
+  validates :name, presence: true
 
   private
   # ensure that there are no restaurants referencing this cuisine
