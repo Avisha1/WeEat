@@ -20,4 +20,20 @@ class Restaurant < ApplicationRecord
   validates :name, :cuisine_id, presence: true
   validates :max_delivery_time, numericality: {greater_than_or_equal_to: 0}
   validates :name, uniqueness: { scope: :address }
+
+
+  def calculate_restaurant_rating
+
+    if reviews.empty?
+      return 0
+    end
+
+    reviews_rating_point_sum = 0
+    reviews.each do |review|
+      reviews_rating_point_sum += review.rating
+    end
+
+    current_restaurant_average = reviews_rating_point_sum / reviews.count
+  end
+
 end

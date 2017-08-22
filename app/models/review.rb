@@ -12,7 +12,7 @@
 #
 
 class Review < ApplicationRecord
-  belongs_to :restaurants
+  belongs_to :restaurant
 
   validates_inclusion_of :rating, in: 0..3, message: 'Must be between 0 to 3.'
 end
