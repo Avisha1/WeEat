@@ -1,29 +1,37 @@
+# == Schema Information
+#
+# Table name: cuisines
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  icon       :integer
+#
+
 # spec/cuisine_spec.rb
 require 'rails_helper'
 
 RSpec.describe Cuisine, type: :model do
 
-  context 'check positive validation' do
-    let(:cuisine) {
-      Cuisine.new(:name => 'italian')
-    }
-    it 'check if exists' do
-      expect(cuisine.name).to eql('italian')
+  describe 'validations' do
+
+    context 'check equality with name' do
+      let(:cuisine) {FactoryGirl.build(:cuisine)}
+
+      it 'checks it is equal to right name' do
+        expect(cuisine.name).to eql('Italian')
+      end
     end
-  end
 
-=begin
-  context 'check negative validation' do
+    context 'check missing name' do
+      let(:cuisine) {FactoryGirl.build(:cuisine, name: nil)}
 
-    let(:cuisine2) {
-      Cuisine.new()
-    }
-
-    it 'check for relevant error' do
-      expect(cuisine2.save!).to raise_error(ActiveRecord::RecordInvalid)
+      it 'should not be valid' do
+        expect(cuisine.valid?).to be_falsey
+      end
     end
 
   end
-=end
 
 end

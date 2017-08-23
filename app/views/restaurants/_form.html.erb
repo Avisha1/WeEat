@@ -18,12 +18,7 @@
 
   <div class="field">
     <%= form.label :cuisine_id %>
-    <%= form.number_field :cuisine_id, id: :restaurant_cuisine_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating, id: :restaurant_rating %>
+    <%= collection_select(:cuisine, :cuisine_id, Cuisine.all, :id, :name, {:selected => :cuisine_id}) %>
   </div>
 
   <div class="field">
@@ -32,13 +27,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :lat %>
-    <%= form.text_field :lat, id: :restaurant_lat %>
-  </div>
-
-  <div class="field">
-    <%= form.label :lon %>
-    <%= form.text_field :lon, id: :restaurant_lon %>
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :restaurant_address %>
   </div>
 
   <div class="field">

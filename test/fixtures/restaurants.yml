@@ -5,7 +5,6 @@
 #  id                :integer          not null, primary key
 #  name              :string
 #  cuisine_id        :integer
-#  rating            :integer
 #  accept_10_bis     :boolean
 #  max_delivery_time :integer
 #  created_at        :datetime         not null

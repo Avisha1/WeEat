@@ -5,7 +5,6 @@
 #  id                :integer          not null, primary key
 #  name              :string
 #  cuisine_id        :integer
-#  rating            :integer
 #  accept_10_bis     :boolean
 #  max_delivery_time :integer
 #  created_at        :datetime         not null
@@ -24,16 +23,13 @@ class Restaurant < ApplicationRecord
 
   def calculate_restaurant_rating
 
-    if reviews.empty?
-      return 0
-    end
+    return 0 if reviews.empty?
 
-    reviews_rating_point_sum = 0
-    reviews.each do |review|
-      reviews_rating_point_sum += review.rating
-    end
+    (reviews.sum(:rating) / reviews.count.to_f).round
+  end
 
-    current_restaurant_average = reviews_rating_point_sum / reviews.count
+  def get_cuisine_name
+    Cuisine.find(cuisine_id).name
   end
 
 end

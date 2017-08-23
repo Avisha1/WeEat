@@ -4,15 +4,28 @@
     <title>WeEat</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <% if false %>
         <%= javascript_pack_tag 'hello_react' %>
     <% end %>
+
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway:600' type='text/css'>
+
   </head>
 
   <body>
-    <%= yield %>
+
+  <div class="jumbotron">
+    <div class="container-fluid">
+      <h1>Welcome to Eat Eat Drink</h1>
+      <p>For the people, from the people, food the people</p>
+    </div>
+  </div>
+
+  <h3 class="cuisine_font">F</h3>
+
+  <%= yield %>
   </body>
 </html>
