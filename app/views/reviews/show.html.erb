@@ -15,10 +15,5 @@
   <%= @review.date %>
 </p>
 
-<p>
-  <strong>Restaurant:</strong>
-  <%= @review.restaurant_id %>
-</p>
-
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<%= link_to 'Edit', edit_restaurant_review_path(@review.restaurant, @review) %> |
+<%= link_to 'Back', restaurant_reviews_path(@review.restaurant) %>
