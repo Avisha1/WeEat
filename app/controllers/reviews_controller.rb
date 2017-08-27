@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
   # GET /restaurants/:restaurant_id/reviews.xml
   def index
     #1st you retrieve the restaurant thanks to params[:restaurant_id]
-    restaurant = Restaurant.find(params[:restaurant_id])
+    restaurant = find_restaurant
     #2nd you get all the reviews of this restaurant
     @reviews = restaurant.reviews
 
@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/:id.xml
   def show
     #1st you retrieve the restaurant thanks to params[:restaurant_id]
-    restaurant = Restaurant.find(params[:restaurant_id])
+    restaurant = find_restaurant
     #2nd you retrieve the review thanks to params[:id]
     @review = restaurant.reviews.find(params[:id])
 
@@ -33,7 +33,7 @@ class ReviewsController < ApplicationController
   # GET /restaurants/:restaurant_id/reviews/new.xml
   def new
     #1st you retrieve the restaurant thanks to params[:restaurant_id]
-    restaurant = Restaurant.find(params[:restaurant_id])
+    restaurant = find_restaurant
     #2nd you build a new one
     @review = restaurant.reviews.build
 
@@ -46,7 +46,7 @@ class ReviewsController < ApplicationController
   # GET /restaurants/:restaurant_id/reviews/:id/edit
   def edit
     #1st you retrieve the restaurant thanks to params[:restaurant_id]
-    restaurant = Restaurant.find(params[:restaurant_id])
+    restaurant = find_restaurant
     #2nd you retrieve the review thanks to params[:id]
     @review = restaurant.reviews.find(params[:id])
   end
@@ -55,7 +55,7 @@ class ReviewsController < ApplicationController
   # POST /restaurants/:restaurant_id/reviews.xml
   def create
     #1st you retrieve the restaurant thanks to params[:restaurant_id]
-    restaurant = Restaurant.find(params[:restaurant_id])
+    restaurant = find_restaurant
     #2nd you create the review with arguments in params[:reviews]
     @review = restaurant.reviews.create!(review_params)
 
@@ -76,7 +76,7 @@ class ReviewsController < ApplicationController
   # PUT /restaurants/:restaurant_id/reviews/:id.xml
   def update
     #1st you retrieve the restaurant thanks to params[:restaurant_id]
-    restaurant = Restaurant.find(params[:restaurant_id])
+    restaurant = find_restaurant
     #2nd you retrieve the review thanks to params[:id]
     @review = restaurant.reviews.find(params[:id])
 
@@ -96,7 +96,7 @@ class ReviewsController < ApplicationController
   # DELETE /restaurants/:restaurant_id/reviews/1.xml
   def destroy
     #1st you retrieve the restaurant thanks to params[:restaurant_id]
-    restaurant = Restaurant.find(params[:restaurant_id])
+    restaurant = find_restaurant
     #2nd you retrieve the review thanks to params[:id]
     @review = restaurant.reviews.find(params[:id])
     @review.destroy
@@ -117,5 +117,9 @@ class ReviewsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:review).permit(:rating, :comment, :date, :restaurant_id)
+    end
+
+    def find_restaurant
+      Restaurant.find(params[:restaurant_id])
     end
 end
