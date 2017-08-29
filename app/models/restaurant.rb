@@ -32,4 +32,8 @@ class Restaurant < ApplicationRecord
     Cuisine.find(cuisine_id).name
   end
 
+  def get_cuisine_icon
+    Cuisine.find(cuisine_id).icon
+  end
+
 end

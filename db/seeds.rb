@@ -10,10 +10,14 @@ Review.delete_all
 Restaurant.delete_all
 Cuisine.delete_all
 
-cuisine_indian = Cuisine.create!(name: 'Indian')
-cuisine_french = Cuisine.create!(name: 'French')
-cuisine_italian = Cuisine.create!(name: 'Italian')
-Cuisine.create!(name: 'Israeli')
+cuisine_indian = Cuisine.create!(name: 'Indian', icon: '#')
+cuisine_french = Cuisine.create!(name: 'French', icon: 'F')
+cuisine_italian = Cuisine.create!(name: 'Italian', icon: 'F')
+cuisine_cafe = Cuisine.create!(name: 'Cafe', icon: 'B')
+cuisine_bakery = Cuisine.create!(name: 'Bakery', icon: 'Q')
+cuisine_pizza = Cuisine.create!(name: 'Pizza', icon: 'L')
+Cuisine.create!(name: 'Israeli', icon: '')
+Cuisine.create!(name: 'Fish', icon: 'K')
 
 Restaurant.create!(
     name: 'Tandoori',
@@ -37,19 +41,30 @@ Restaurant.create!(
     name: 'Popina',
     max_delivery_time: 10,
     cuisine_id: cuisine_french.id,
-    address: 'Ahad Ha\'Am St 3, Tel Aviv-Yafo')
+    address: 'Ahad Ha\'Am St 3, Tel Aviv-Yafo',
+    accept_10_bis: true)
 
 Restaurant.create!(
     name: 'Amore Mio',
     max_delivery_time: 10,
     cuisine_id: cuisine_italian.id,
-    address: 'Ibn Gabirol St 100, Tel Aviv-Yafo')
+    address: 'Ibn Gabirol St 100, Tel Aviv-Yafo',
+    accept_10_bis: true)
 
 res = Restaurant.create!(
     name: 'Boccaccio',
     max_delivery_time: 10,
     cuisine_id: cuisine_italian.id,
-    address: 'HaYarkon St 106, Tel Aviv-Yafo')
+    address: 'HaYarkon St 106, Tel Aviv-Yafo',
+    accept_10_bis: true)
+
+
+Restaurant.create!(
+    name: 'Aroma',
+    max_delivery_time: 1,
+    cuisine_id: cuisine_cafe.id,
+    address: 'Shaul Hamelech St 30, Tel Aviv-Yafo',
+    accept_10_bis: true)
 
 
 Review.create!(

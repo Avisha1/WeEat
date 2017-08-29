@@ -85,7 +85,7 @@ label {
 
 .jumbotron {
   background-image: url(http://i1216.photobucket.com/albums/dd370/kjames1581/jtronnew.jpg);
-  height: 250px;
+  height: 350px;
   color: white;
   background-repeat: no-repeat;
   background-size: cover;
@@ -103,13 +103,17 @@ label {
   background-color: #111;
 }*/
 
-.container {
-  width: 1170px; /* specify a width */
-  margin: 0 auto;  /* centers the container */
-  padding: 0 15px; /* adds some padding to the left and right*/
-}
+//.container {
+//  width: 1170px; /* specify a width */
+//  margin: 0 auto;  /* centers the container */
+//  padding: 0 15px; /* adds some padding to the left and right*/
+//}
 
 .jumbotron .container {
   max-width: 100%; /* allows the jumbotron to adjust on smaller widths */
   background-color: #222;
+}
+
+  .list-group {
+  list-style: none;
 }

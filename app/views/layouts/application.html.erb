@@ -7,11 +7,10 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <% if false %>
-        <%= javascript_pack_tag 'hello_react' %>
-    <% end %>
 
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway:600' type='text/css'>
+    <%= javascript_pack_tag 'hello_react' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
 
@@ -24,8 +23,7 @@
     </div>
   </div>
 
-  <h3 class="cuisine_font">F</h3>
+  <div id="root"></div>
 
-  <%= yield %>
   </body>
 </html>
