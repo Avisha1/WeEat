@@ -6,18 +6,20 @@ class Restaurant extends React.Component {
         const tenBisIcon = <img className="ten_bis_icon" src="/assets/10bis_icon.jpg"/>;
 
         return (
-                <div className="row bla">
+                <div className="row">
 
                     <div className="col-sm-2 cuisine_font hidden-xs">
                         {this.props.data.cuisine_icon}
                     </div>
 
                     <div className="col-sm-4">
-                        <p>{this.props.data.max_delivery_time} minutes away </p>
                         <p>Name: {this.props.data.name}</p>
+                        <p>{this.props.data.cuisine_name}</p>
                         {this.props.data.accepts_10_bis && tenBisIcon}
                         <p>Address: {this.props.data.address}</p>
+                        <p>Delivery Time: {this.props.data.max_delivery_time}</p>
                         <GetStars val={this.props.data.rating}/>
+
                         {/*<p>Rating: {this.props.data.rating}</p>*/}
                     </div>
 
