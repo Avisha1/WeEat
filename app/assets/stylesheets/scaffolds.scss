@@ -83,8 +83,8 @@ label {
   display: block;
 }
 
-.jumbotron {
-  background-image: url(https://images.pexels.com/photos/326278/pexels-photo-326278.jpeg?w=940&h=650&auto=compress&cs=tinysrgb);
+.business-header {
+  background-image: url(./jumbotron.jpeg);
   height: 350px;
   color: white;
   background-repeat: no-repeat;
@@ -97,21 +97,8 @@ label {
     color: white;
   }
 }
-
-/*.jumbotron {
-  padding: 30px; !* fills out the jumbotron *!
-  background-color: #111;
-}*/
-
-//.container {
-//  width: 1170px; /* specify a width */
-//  margin: 0 auto;  /* centers the container */
-//  padding: 0 15px; /* adds some padding to the left and right*/
-//}
-
-.jumbotron .container {
-  max-width: 100%; /* allows the jumbotron to adjust on smaller widths */
-  background-color: #222;
+.business-header .container {
+  max-width: 100%;
 }
 
   .list-group {

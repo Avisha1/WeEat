@@ -21,9 +21,9 @@ class Filters extends React.Component {
         const cuisines = ['Indian', 'French', 'Italian', 'Cafe', 'Bakery', 'fish', 'Pizza', 'Burger']
 
         return (
-            <div className="filters">
+            <div className="row filters">
 
-                <div className="col-sm-4">
+                <div className="col-xs-12 col-sm-2">
                     <p>Cuisine Filter:</p>
                     <select className="selectpicker" onChange={(e) => this.props.filterCuisine(e.target.value)}>
                         <option value="" defaultValue>All</option>
@@ -35,7 +35,7 @@ class Filters extends React.Component {
                     </select>
                 </div>
 
-                <div className="col-sm-4">
+                <div className="col-xs-12 col-sm-2">
                     <p>Rating Filter:</p>
                     <select className="selectpicker" onChange={(e) => this.props.filterRating(e.target.value)}>
                         <option value="" defaultValue>All</option>
@@ -46,7 +46,7 @@ class Filters extends React.Component {
                     </select>
                 </div>
 
-                <div className="col-sm-4">
+                <div className="col-xs-12 col-sm-2">
                     <p>Maximum Delivery Time:</p>
                     <input type="range" min={10} max={70} step={5} value={this.state.maxDeliveryTime} onChange={(e) => {
                         this.props.filterDeliveryTime(e.target.value);
