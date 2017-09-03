@@ -1,12 +1,11 @@
 import React from 'react'
-import Header from './Header'
-import NewRestaurant from "./NewRestaurant"
-import RestaurantsPage from "./RestaurantsPage"
+import Header from './Headers/Header'
+import ContentPage from "./ContentPage"
 
 class App extends React.Component {
     constructor() {
         super();
-        this.state ={
+        this.state = {
             current_page: 'restaurants',
         }
 
@@ -25,19 +24,12 @@ class App extends React.Component {
     render() {
         console.log('location: ', 'App');
 
-        let body = null;
-        if (this.state.current_page == 'restaurants') {
-            body =  <RestaurantsPage />
-        }
-        else if(this.state.current_page == 'new') {
-            body = <NewRestaurant />
-        }
         return (
             <div>
-                <Header navigateNew={this.navigateToNew}/>
+                <Header/>
 
                 <div className="container">
-                    {body}
+                    <ContentPage/>
                 </div>
             </div>
         )

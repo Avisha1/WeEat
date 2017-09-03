@@ -9,4 +9,6 @@ json.array! @restaurants do |restaurant|
   json.rating restaurant.calculate_restaurant_rating
   json.address restaurant.address
   json.cuisine_icon restaurant.get_cuisine_icon
+  json.lat restaurant.lat
+  json.lon restaurant.lon
 end

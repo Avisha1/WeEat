@@ -10,6 +10,8 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  address           :string
+#  lon               :float
+#  lat               :float
 #
 
 require 'rails_helper'
@@ -56,7 +58,7 @@ RSpec.describe Restaurant, type: :model do
         expect(restaurant.calculate_restaurant_rating).to eq(3)
       end
 
-      let!(:review_c) {FactoryGirl.create(:review, :review_2, restaurant: restaurant2)}
+      let!(:review_c) {FactoryGirl.create(:review, :review_2, restaurasnt: restaurant2)}
       let!(:review_d) {FactoryGirl.create(:review, :review_3, restaurant: restaurant2)}
       let!(:review_e) {FactoryGirl.create(:review, :review_3, restaurant: restaurant2)}
 

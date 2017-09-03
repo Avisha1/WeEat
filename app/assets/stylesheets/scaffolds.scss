@@ -95,12 +95,18 @@ label {
   margin-top: -9px;
   p {
     color: white;
+    text-align: left;
+  }
+  h1 {
+    text-align: left;
   }
 }
+
 .business-header .container {
   max-width: 100%;
 }
 
-  .list-group {
+.list-group {
   list-style: none;
 }
+

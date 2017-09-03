@@ -1,7 +1,7 @@
 import React from 'react'
 import Restaurant from './Restaurant'
 
-class Restaurant_list extends React.Component {
+class RestaurantList extends React.Component {
 
     render() {
         return (
@@ -21,4 +21,4 @@ class Restaurant_list extends React.Component {
     }
 }
 
-export default Restaurant_list
+export default RestaurantList

@@ -8,11 +8,11 @@ class Restaurant extends React.Component {
         return (
             <div className="row">
 
-                <div className="col-sm-2 cuisine_font hidden-sm hidden-xs">
+                <div className="col-sm-3 cuisine_font hidden-sm hidden-xs">
                     {this.props.data.cuisine_icon}
                 </div>
 
-                <div className="col-xs-10 col-sm-4">
+                <div className="col-xs-10 col-sm-5">
 
                     <p>
                         Name: {this.props.data.name}
@@ -31,7 +31,7 @@ class Restaurant extends React.Component {
 
                 </div>
 
-                <div className="col-xs-10 col-sm-2">
+                <div className="col-xs-2 col-sm-4">
                     {/*here will be the button for new review*/}
                 </div>
 
