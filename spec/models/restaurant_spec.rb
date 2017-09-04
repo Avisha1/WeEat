@@ -58,7 +58,7 @@ RSpec.describe Restaurant, type: :model do
         expect(restaurant.calculate_restaurant_rating).to eq(3)
       end
 
-      let!(:review_c) {FactoryGirl.create(:review, :review_2, restaurasnt: restaurant2)}
+      let!(:review_c) {FactoryGirl.create(:review, :review_2, restaurant: restaurant2)}
       let!(:review_d) {FactoryGirl.create(:review, :review_3, restaurant: restaurant2)}
       let!(:review_e) {FactoryGirl.create(:review, :review_3, restaurant: restaurant2)}
 
@@ -73,7 +73,7 @@ RSpec.describe Restaurant, type: :model do
       end
 
 
-      let(:review_h) {FactoryGirl.create(:review, :review_1, restaurant: restaurant3)}
+      let(:review_h) {FactoryGirl.create(:review, :review_2, restaurant: restaurant3)}
       it 'should be 2' do
         review_h
         expect(restaurant3.calculate_restaurant_rating).to eq(2)

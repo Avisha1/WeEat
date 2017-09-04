@@ -58,7 +58,7 @@ RSpec.describe Review, type: :model do
       let(:no_association_review) {FactoryGirl.build(:review, :review_no_ass)}
 
       it 'should not be valid' do
-        expect(no_association_review.valid?).to be_truthy
+        expect(no_association_review.valid?).to be_falsey
       end
     end
 
