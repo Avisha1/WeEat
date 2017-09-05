@@ -1,5 +1,5 @@
 
-class Api::V1::CuisinesController < Api::V1::ApplicationController
+class Api::V1::CuisinesController < ApplicationController
 
   def get_all_cuisines
     begin

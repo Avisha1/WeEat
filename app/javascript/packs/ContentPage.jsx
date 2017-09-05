@@ -1,14 +1,14 @@
 import React from 'react'
 import RestaurantList from './RestaurantList'
-import Filters from './Filters/Filters'
-import Map from './GoogleMapsApi/Map'
+import Filters from './filters/Filters'
+import Map from './googleMapsApi/Map'
 
 
 class ContentPage extends React.Component {
     constructor() {
         super();
         this.state = {
-            data: []
+            data: [],
         }
 
         this.filterByCuisine = this.filterByCuisine.bind(this);
@@ -22,20 +22,18 @@ class ContentPage extends React.Component {
         fetch('http://localhost:3000/restaurants.json')
             .then(response => response.json())
             .then((items) => this.setState(({data: items})));
+
     }
 
     filterByCuisine(val) {
-        console.log('Filter Cuisine', val);
         this.setState({cuisineFilter: val})
     }
 
     filterByRating(val) {
-        console.log('Filter Rating', val);
         this.setState({ratingFilter: val})
     }
 
     filterByDeliveryTime(val) {
-        console.log('Filter Delivery Time', val);
         this.setState({deliveryTimeFilter: val})
     }
 
@@ -59,18 +57,21 @@ class ContentPage extends React.Component {
             <div>
                 <Filters filterCuisine={this.filterByCuisine}
                          filterRating={this.filterByRating}
-                         filterDeliveryTime={this.filterByDeliveryTime}/>
+                         filterDeliveryTime={this.filterByDeliveryTime}
+                         cuisines={this.props.cuisines}/>
 
-                <div className="row">
+                <div className="container">
+                    <div className="row">
 
-                    <div className="col-sm-6 col-md-6">
-                        <RestaurantList data={restaurantFiltered}/>
+                        <div className="col-sm-6 col-md-6">
+                            <RestaurantList data={restaurantFiltered}/>
+                        </div>
+
+                        <div className="col-sm-6 col-md-6">
+                            <Map data={restaurantFiltered}/>
+                        </div>
+
                     </div>
-
-                    <div className="col-sm-6 col-md-6">
-                        <Map data={restaurantFiltered}/>
-                    </div>
-
                 </div>
             </div>
         )

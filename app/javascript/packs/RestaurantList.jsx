@@ -8,7 +8,6 @@ class RestaurantList extends React.Component {
             <ul className="list-group">
                 {
                     this.props.data.map((item, key) => {
-                        console.log('object from BE:', item);
                         return (
                             <li className="list-group-item" key={key}>
                                 <Restaurant data={item}/>

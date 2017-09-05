@@ -1,5 +1,6 @@
 import React from 'react'
-import Header from './Headers/Header'
+import Header from './headers_footers/Header'
+import Footer from './headers_footers/Footer'
 import ContentPage from "./ContentPage"
 
 class App extends React.Component {
@@ -7,10 +8,17 @@ class App extends React.Component {
         super();
         this.state = {
             current_page: 'restaurants',
+            cuisines: []
         }
 
         this.navigateToNew = this.navigateToNew.bind(this);
         this.navigateBack = this.navigateBack.bind(this);
+    }
+
+    componentWillMount() {
+        fetch('http://localhost:3000/api/v1/cuisines/get_all_cuisines.json')
+            .then(response => response.json())
+            .then((items) => this.setState(({cuisines: items})));
     }
 
     navigateToNew() {
@@ -25,12 +33,14 @@ class App extends React.Component {
         console.log('location: ', 'App');
 
         return (
-            <div>
-                <Header/>
+            <div className="bg">
+                <Header cuisines={this.state.cuisines}/>
 
-                <div className="container">
-                    <ContentPage/>
+                <div>
+                    <ContentPage cuisines={this.state.cuisines}/>
                 </div>
+
+                <Footer />
             </div>
         )
     }

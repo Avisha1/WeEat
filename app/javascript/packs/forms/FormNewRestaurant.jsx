@@ -1,21 +1,75 @@
 import React from 'react'
-
+import PropTypes from 'prop-types';
+import $ from 'jquery'
 
 export default class FormNewRestaurant extends React.Component {
 
-    constructor() {
-        super();
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            name: '',
+            cuisine: '',
+            tenBis: false,
+            address: '',
+            maxDeliveryTime: '5'
+        }
 
         this.newRestaurantSubmit = this.newRestaurantSubmit.bind(this);
-    }
+        this.handleChange = this.handleChange.bind(this);
+    };
 
-    newRestaurantSubmit() {
+    handleChange = (e) => {
 
+        const target_id = e.target.id;
+        const target_value = e.target.value;
+
+        if (target_id == "restaurant_id") {
+            this.setState({name: target_value});
+        }
+        else if (target_id == "address_id") {
+            this.setState({address: target_value});
+        }
+        else if (target_id == "max_delivery_id") {
+            this.setState({maxDeliveryTime: parseInt(target_value)})
+        }
+        else if (target_id == "tenbis_id") {
+            this.setState({tenBis: target_value})
+        }
+        else if (target_id == "cuisine_select_id") {
+            this.setState({cuisine: target_value})
+        }
+    };
+
+    newRestaurantSubmit(event) {
+        event.preventDefault();
         //valid params
 
-        //make post call
 
-    }
+        $.ajax({
+            url: '/restaurants',
+            dataType: 'application/json',
+            type: 'POST',
+            data: {
+                restaurant: {
+                    name: this.state.name,
+                    accept_10_bis: this.state.tenBis,
+                    address: this.state.address,
+                    max_delivery_time: this.state.maxDeliveryTime,
+                    cuisine_id: this.state.cuisine
+                },
+            },
+        })
+            .done(function(data) {
+                console.log("submit success!!");
+            })
+            .fail(function (error) {
+                console.log("error! " + error);
+                debugger;
+
+            })
+    };
 
     render() {
         return (
@@ -25,7 +79,9 @@ export default class FormNewRestaurant extends React.Component {
 
                     <div className="col-xs-12 col-sm-10">
                         <label>Restaurant name:</label>
-                        <input type="text" className="form-control" placeholder="Write here the restaurant's name" required/>
+                        <input id="restaurant_id" type="text" className="form-control"
+                               placeholder="Write here the restaurant's name"
+                               value={this.state.name} onChange={this.handleChange} required/>
                     </div>
                 </div>
 
@@ -34,7 +90,8 @@ export default class FormNewRestaurant extends React.Component {
                 <div className="row">
                     <div className="col-xs-12 col-sm-10">
                         <label>Address:</label>
-                        <input type="text" className="form-control" placeholder="Address" required/>
+                        <input id="address_id" type="text" className="form-control" placeholder="Address"
+                               value={this.state.address} onChange={this.handleChange} required/>
                     </div>
                 </div>
 
@@ -44,7 +101,8 @@ export default class FormNewRestaurant extends React.Component {
 
                 <div className="row">
                     <div className="col-xs-12 col-sm-10">
-                        <label>Accept 10 bis? <input className="form-check-input" type="checkbox" value=""/></label>
+                        <label>Accept 10 bis? <input id="tenbis_id" className="form-check-input" type="checkbox"
+                                                     value={this.state.tenBis} onChange={this.handleChange}/></label>
                     </div>
                 </div>
 
@@ -53,26 +111,30 @@ export default class FormNewRestaurant extends React.Component {
                 <div className="row">
                     <div className="col-xs-12 col-sm-10">
                         <label>Max Delivery Time:</label>
-                        <input className="form-control" type="number" min={5} max={70} step={1} required/>
+                        <input id="max_delivery_id" className="form-control" type="number" min={5} max={70} step={1}
+                               value={this.state.maxDeliveryTime} onChange={this.handleChange} required/>
                     </div>
                 </div>
 
-                <br />
+                <br/>
 
                 <label>Cuisines:</label>
                 <br/>
-                <select className="custom-select col-xs-12 col-sm-10" id="inlineFormCustomSelectPref" required>
+                <select className="custom-select col-xs-12 col-sm-10" id="cuisine_select_id" value={this.state.cuisine}
+                        onChange={this.handleChange} required>
                     <option value="" defaultValue>Choose...</option>
-                    {this.props.data.map((item, key) => {
-                        return (<option key={key} value={this.id}>{item.name}</option>)
+                    {this.props.cuisines.map((item, key) => {
+                        return (<option key={item.name} value={item.id}>{item.name}</option>)
                     })}
                 </select>
 
                 <br/>
-                <br />
+                <br/>
                 <div className="row">
                     <div className="col-xs-10 col-sm-5">
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" onClick={(e) => this.newRestaurantSubmit(e)} className="btn btn-primary">
+                            Submit
+                        </button>
                     </div>
 
                     <div className="col-xs-10 col-sm-5 col-sm-offset-2">
@@ -80,9 +142,6 @@ export default class FormNewRestaurant extends React.Component {
                     </div>
                 </div>
             </form>
-
-
-
 
         )
     }

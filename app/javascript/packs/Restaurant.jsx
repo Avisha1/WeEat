@@ -8,31 +8,27 @@ class Restaurant extends React.Component {
         return (
             <div className="row">
 
-                <div className="col-sm-3 cuisine_font hidden-sm hidden-xs">
+                <div className="col-sm-2 cuisine_font hidden-sm hidden-xs">
                     {this.props.data.cuisine_icon}
                 </div>
 
-                <div className="col-xs-10 col-sm-5">
+                <div className="col-xs-10 col-sm-9">
 
                     <p>
-                        Name: {this.props.data.name}
+                        <strong>{this.props.data.name}</strong> ({this.props.data.cuisine_name})
                     </p>
-                    <p>
-                        {this.props.data.cuisine_name}
-                    </p>
+                    {/*<p className="small">*/}
+                        {/*{this.props.data.cuisine_name}*/}
+                    {/*</p>*/}
                     {this.props.data.accepts_10_bis && tenBisIcon}
-                    <p>
+                    <p className="small">
                         Address: {this.props.data.address}
                     </p>
-                    <p>
+                    <p className="small">
                         Delivery Time: {this.props.data.max_delivery_time}
                     </p>
                     <GetStars val={this.props.data.rating}/>
 
-                </div>
-
-                <div className="col-xs-2 col-sm-4">
-                    {/*here will be the button for new review*/}
                 </div>
 
             </div>

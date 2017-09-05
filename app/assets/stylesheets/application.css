@@ -28,10 +28,10 @@
 
 .cuisine_font {
     font-family: 'ef_cuisinesregular', sans-serif;
-    font-size: 10em;
+    font-size: 8em;
 
     position: absolute;
-    top: 45px;
+    top: 40px;
     left: 1%;
 }
 
@@ -57,6 +57,10 @@
     align-items: center;
 }
 
+.opacity {
+    opacity: 0.7;
+}
+
 .icon {
     max-width: 100%;
     max-height: 100%;
@@ -79,3 +83,16 @@
     background-size: cover;
 }
 
+.vcenter {
+    vertical-align: middle;
+    float: none;
+    margin-top: 80px;
+}
+
+p.small {
+    line-height: 70%;
+}
+
+p.big {
+    line-height: 200%;
+}
