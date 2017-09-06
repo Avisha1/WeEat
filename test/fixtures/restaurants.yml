@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: restaurants
+#
+#  id                :integer          not null, primary key
+#  name              :string
+#  cuisine_id        :integer
+#  accept_10_bis     :boolean
+#  max_delivery_time :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  address           :string
+#  lon               :float
+#  lat               :float
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cuisine_id: 1
+  rating: 1
+  accept_10_bis: false
+  lat: 1.5
+  lon: 1.5
+  max_delivery_time: MyString
+
+two:
+  name: MyString
+  cuisine_id: 1
+  rating: 1
+  accept_10_bis: false
+  lat: 1.5
+  lon: 1.5
+  max_delivery_time: MyString
