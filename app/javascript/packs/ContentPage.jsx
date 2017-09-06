@@ -1,7 +1,7 @@
 import React from 'react'
 import RestaurantList from './RestaurantList'
-import Filters from './filters/Filters'
-import Map from './googleMapsApi/Map'
+import Filters from './Filters/Filters'
+import Map from './GoogleMapsApi/Map'
 
 
 class ContentPage extends React.Component {

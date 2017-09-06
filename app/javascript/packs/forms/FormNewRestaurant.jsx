@@ -49,7 +49,7 @@ export default class FormNewRestaurant extends React.Component {
 
         $.ajax({
             url: '/restaurants',
-            dataType: 'application/json',
+            dataType: 'json',
             type: 'POST',
             data: {
                 restaurant: {
@@ -132,9 +132,7 @@ export default class FormNewRestaurant extends React.Component {
                 <br/>
                 <div className="row">
                     <div className="col-xs-10 col-sm-5">
-                        <button type="submit" onClick={(e) => this.newRestaurantSubmit(e)} className="btn btn-primary">
-                            Submit
-                        </button>
+                        <input type="submit" className="btn btn-primary" value="Submit" />
                     </div>
 
                     <div className="col-xs-10 col-sm-5 col-sm-offset-2">

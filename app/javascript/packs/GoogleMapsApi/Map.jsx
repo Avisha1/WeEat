@@ -20,7 +20,6 @@ export default class Map extends React.Component {
     };
 
     render() {
-        // const {restList, center, zoom, weworkPlaceCoords} = this.props;
         const restList = this.props.data;
         return (
             <div className="map">
